@@ -67,6 +67,9 @@
 # Since they depend on vertical position GPOS engine, they don't
 # work. Malayalam works somewhat except for vertical positioning.
 
+# defective method! need to this differently by reading one word
+# at time and then processing.
+
 from tkinter import *
 import sys
 import clipboard
@@ -86,7 +89,7 @@ uniDisp = ""  # unicode value display for debugging
 # enter the language ttf font below!
 # strip and save a temp xml file with only GSUB and cmap tables for the font
 
-font2 = TTFont("akshar.ttf", fontNumber=0)
+font2 = TTFont("ITFDevanagari.ttc", fontNumber=0)
 font2.saveXML("temp.xml", tables=["GSUB", "cmap"])
 
 debug = False
@@ -437,7 +440,7 @@ myFont = font.Font(family='Helvetica')
 
 # copy some sample text into clipboard for testing the program
 # clipboard.copy("test chars \n mathi தமிழ் மொழி Mathiazhagan \n லக்‌ஷமி லக்‌ஷ்மி கை சித்து தூ பு பூ மெ விகடவீ ஶ்ரீ க்‌ஷ் மொ கை வெ றா சிந்து")
-clipboard.copy("अक्षय , राजा , रूपी, श्री ")
+clipboard.copy("अक्षय , राजा , रूपी, श्री, र्जी  ")
 
 clipText = clipboard.paste()  # text will have the content of clipboard
 # sanskrit characters like ஶ்ரீ or க்‌ஷ need level 3 substitution not implemented here.
