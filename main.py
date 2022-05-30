@@ -67,7 +67,12 @@
 # Since they depend on vertical position GPOS engine, they don't
 # work. Malayalam works somewhat except for vertical positioning.
 
-# defective method! need to this differently by reading one word
+# Warning! This program is defective and may display some Hindi
+# character combinations incorrectly, though most of them are ok.
+
+
+# Need to change the multilevel rendering logic to make it work better!
+# defective method! need to do this differently by reading one word
 # at time and then processing.
 
 from tkinter import *
