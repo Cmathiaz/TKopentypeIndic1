@@ -94,7 +94,7 @@ uniDisp = ""  # unicode value display for debugging
 # enter the language ttf font below!
 # strip and save a temp xml file with only GSUB and cmap tables for the font
 
-font2 = TTFont("ITFDevanagari.ttc", fontNumber=0)
+font2 = TTFont("akshar.ttf", fontNumber=0)
 font2.saveXML("temp.xml", tables=["GSUB", "cmap"])
 
 debug = False
@@ -106,8 +106,8 @@ defaultLang2 = False
 # do not select two or more, it won't work correctly!
 # I do not know any of the Devanagari languages, but they
 # seem to work, but no guarantees!
-Tamil = False
-Deva = True
+Tamil = True
+Deva = False
 
 # the following Dravidian languages don't work
 # as they rely mostly on GPOS engine to position char vertically!
@@ -314,8 +314,8 @@ print("Feature table index: lkList =", lkList)
 
 # now get link list of lookup tables to use in correct order
 llList = []
-for j in range(0, len(lookuplist)):
-    for k in range(0, len(lkList)):
+for k in range(0, len(lkList)):
+    for j in range(0, len(lookuplist)):
         if lookuplist[j][0] == lkList[k]:
             llList.append(lookuplist[j][3])
             continue
@@ -444,8 +444,8 @@ root.title('A simple Unicode to opentype glyph format converter for Affinity pro
 myFont = font.Font(family='Helvetica')
 
 # copy some sample text into clipboard for testing the program
-# clipboard.copy("test chars \n mathi தமிழ் மொழி Mathiazhagan \n லக்‌ஷமி லக்‌ஷ்மி கை சித்து தூ பு பூ மெ விகடவீ ஶ்ரீ க்‌ஷ் மொ கை வெ றா சிந்து")
-clipboard.copy("अक्षय , राजा , रूपी, श्री, र्जी  ")
+clipboard.copy("test chars \n mathi தமிழ் மொழி Mathiazhagan \n லக்‌ஷமி லக்‌ஷ்மி கை சித்து தூ பு பூ மெ விகடவீ ஶ்ரீ ஸ்ரீ க்‌ஷ் மொ கை வெ றா சிந்து")
+#clipboard.copy("अक्षय , राजा , रूपी, श्री, र्जी  ")
 
 clipText = clipboard.paste()  # text will have the content of clipboard
 # sanskrit characters like ஶ்ரீ or க்‌ஷ need level 3 substitution not implemented here.
